@@ -1,2 +1,2 @@
 require 'prpr/version'
-require 'prpr/event/pull_request'
+require 'prpr/event/event'

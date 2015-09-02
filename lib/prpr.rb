@@ -1,5 +1,2 @@
-require "prpr/version"
-
-module Prpr
-  # Your code goes here...
-end
+require 'prpr/version'
+require 'prpr/event/pull_request'

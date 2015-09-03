@@ -1,4 +1,5 @@
 require 'prpr/version'
+require 'prpr/runner'
 require 'prpr/event/event'
 require 'prpr/action/base'
 require 'prpr/handler/base'

@@ -10,9 +10,13 @@ class TestHandler < Prpr::Handler::Base
 end
 
 RSpec.describe Prpr::Handler::Base do
+  let(:json) {
+    JSON.parse fixture('pull_request_open.json')
+  }
+
   context 'invoke matched handler' do
     let(:event) {
-      Prpr::Event::PullRequest.new(action: 'opened', number: 26)
+      Prpr::Event::PullRequest.new(json)
     }
 
     it do
@@ -23,7 +27,7 @@ RSpec.describe Prpr::Handler::Base do
 
   context 'not invoke un-matched handler' do
     let(:event) {
-      Prpr::Event::PullRequest.new(action: 'closed', number: 26)
+      Prpr::Event::PullRequest.new(json.merge(action: 'closed'))
     }
 
     it do

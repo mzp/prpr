@@ -13,7 +13,7 @@ module Prpr
           when 'pull_request'
             PullRequest.new(JSON.parse(payload))
           else
-            fail UnknownEvent
+            fail UnknownEvent, event
           end
         end
       end

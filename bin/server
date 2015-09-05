@@ -11,8 +11,10 @@ class PrprServer < Sinatra::Base
   post '/' do
     begin
       Prpr::Runner.new.call params['payload'], event: request.env['HTTP_X_GITHUB_EVENT']
+      'ok'
     rescue => e
       logger.error e.message
+      "Error: #{e.message}"
     end
   end
 

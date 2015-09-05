@@ -4,9 +4,20 @@ RSpec.describe Prpr::Config::Github do
   subject { described_class.new('mzp/prpr') }
 
   describe '#read' do
-    before {
-      stub_request(:get, 'https://github.com/mzp/prpr/raw/master/CONFIG').to_return(body: 'some config')
-    }
-    it { expect(subject.read('CONFIG')).to eq('some config') }
+    let(:github) { double(:github) }
+    let(:resource) { double(:resource) }
+    let(:content) { 'foo' }
+
+    before do
+      allow(Prpr::Repository::Github).to receive(:default).and_return(github)
+      allow(resource).to receive(:content).and_return(Base64.encode64(content))
+    end
+
+    it do
+      expect(github).to receive(:content)
+        .with('mzp/prpr', path: 'CONFIG', ref: 'master')
+        .and_return(resource)
+      expect(subject.read('CONFIG')).to eq(content)
+    end
   end
 end

@@ -11,11 +11,17 @@ module Prpr
       end
 
       def read(path)
-        URI.parse(url(path)).read
+        Base64.decode64 resource(path).content.tap { |s| s.force_encoding('utf-8') }
       end
 
-      def url(path)
-        "https://github.com/#{repository}/raw/#{branch}/#{path}"
+      private
+
+      def resource(path)
+        github.content(repository, path: path, ref: branch)
+      end
+
+      def github
+        @github ||= Prpr::Repository::Github.default
       end
     end
   end

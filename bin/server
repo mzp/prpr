@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'prpr'
+require "sinatra/base"
+
+class PrprServer < Sinatra::Base
+  enable :logging
+
+  post '/' do
+    begin
+      Prpr::Runner.new.call params['payload'], event: request.env['HTTP_X_GITHUB_EVENT']
+    rescue => e
+      logger.error e.message
+    end
+  end
+
+  run!
+end

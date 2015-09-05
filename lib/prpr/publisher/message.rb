@@ -10,7 +10,7 @@ module Prpr
       end
 
       def from
-        @original[:from]
+        OpenStruct.new @original[:from]
       end
 
       def room

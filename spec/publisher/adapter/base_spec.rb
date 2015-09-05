@@ -14,7 +14,7 @@ RSpec.describe Prpr::Publisher::Adapter::Base do
 
   describe '#broadcast' do
     let(:message) {
-      Prpr::Publisher::Message.new from: 'mzp', body: 'hello', room: 'general'
+      Prpr::Publisher::Message.new from: { login: 'mzp' }, body: 'hello', room: 'general'
     }
 
     it do

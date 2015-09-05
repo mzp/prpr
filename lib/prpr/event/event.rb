@@ -12,6 +12,8 @@ module Prpr
           case event
           when 'pull_request'
             PullRequest.new(JSON.parse(payload))
+          when 'push'
+            Push.new(JSON.parse(payload))
           else
             fail UnknownEvent, event
           end

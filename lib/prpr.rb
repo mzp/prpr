@@ -1,6 +1,7 @@
 require 'prpr/version'
 require 'prpr/runner'
 require 'prpr/config/env'
+require 'prpr/config/github'
 require 'prpr/event/event'
 require 'prpr/event/pull_request'
 require 'prpr/action/base'

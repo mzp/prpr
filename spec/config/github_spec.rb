@@ -13,11 +13,16 @@ RSpec.describe Prpr::Config::Github do
       allow(resource).to receive(:content).and_return(Base64.encode64(content))
     end
 
+
     it do
       expect(github).to receive(:content)
         .with('mzp/prpr', path: 'CONFIG', ref: 'master')
         .and_return(resource)
-      expect(subject.read('CONFIG')).to eq(content)
+
+      result = subject.read('CONFIG')
+      expect(result).to eq(content)
+      expect(result.encoding).to eq(Encoding::UTF_8)
     end
+
   end
 end

@@ -11,10 +11,14 @@ module Prpr
       end
 
       def read(path)
-        Base64.decode64 resource(path).content.tap { |s| s.force_encoding('utf-8') }
+        decode_content(path).tap { |s| s.force_encoding('utf-8') }
       end
 
       private
+
+      def decode_content(path)
+        Base64.decode64 resource(path).content
+      end
 
       def resource(path)
         github.content(repository, path: path, ref: branch)

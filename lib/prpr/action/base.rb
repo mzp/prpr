@@ -6,6 +6,10 @@ module Prpr
       def initialize(event)
         @event = event
       end
+
+      def env
+        Config::Env.default
+      end
     end
   end
 end

@@ -6,4 +6,3 @@ module Prpr
     end
   end
 end
-

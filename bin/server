@@ -14,7 +14,7 @@ class PrprServer < Sinatra::Base
       'ok'
     rescue => e
       logger.error e.message
-      "Error: #{e.message}"
+      "Error: #{e.message}\n#{e.backtrace}"
     end
   end
 

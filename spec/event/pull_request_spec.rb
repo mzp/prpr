@@ -13,4 +13,9 @@ RSpec.describe Prpr::Event::PullRequest do
     subject { event.sender }
     it { expect(subject.login).to eq('mzp') }
   end
+
+  describe '#to_h' do
+    subject { event.sender.to_h }
+    it { expect(subject['login']).to eq('mzp') }
+  end
 end

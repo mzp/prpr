@@ -1,4 +1,4 @@
-# Prpr [![Build Status](https://travis-ci.org/mzp/prpr.svg?branch=master)](https://travis-ci.org/mzp/prpr)
+# Prpr [![Build Status](https://travis-ci.org/mzp/prpr.svg?branch=master)](https://travis-ci.org/mzp/prpr) [![Code Climate](https://codeclimate.com/github/mzp/prpr/badges/gpa.svg)](https://codeclimate.com/github/mzp/prpr)
 
 Prpr is github pull request bot. It pronounced as "pero-pero”.
 

@@ -6,7 +6,7 @@ Prpr is pull requests' reaction bot.
 ### Handler
 Handler provides various behaviors.
 
- * [prpr-checklint](https://github.com/mzp/prpr-checklist)
+ * [prpr-checklist](https://github.com/mzp/prpr-checklist)
  * [prpr-conflict_label](https://github.com/mzp/prpr-conflict_label)
  * [prpr-review_label](https://github.com/mzp/prpr-review_label)
  * [prpr-mention_comment](https://github.com/mzp/prpr-mention_comment)

@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["mzp"]
   spec.email         = ["mzpppp@gmail.com"]
 
-  spec.summary       = %q{Pull requset bot}
-  spec.description   = %q{Pull request bot}
-  spec.homepage      = "https://codefirst.org"
+  spec.summary       = "Prpr is pull requests' reaction bot."
+  spec.description   = "Prpr is pull requests' reaction bot framework. It is extended by gems."
+  spec.homepage      = "https://github.com/mzp/prpr"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

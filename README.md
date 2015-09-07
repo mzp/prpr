@@ -42,8 +42,8 @@ See [prpr-template](https://github.com/mzp/prpr-template) for example.
 Open your github repository's webhook setting, and input lik following.
 
  * Payload URL: http://prpr.example.com
- * Content type: application/x-www-form-url-encoded
- * Which events would you like to trigger this webhook?: send everytihng
+ * Content type: `application/x-www-form-url-encoded`
+ * Which events would you like to trigger this webhook?: `Send me everytihng`
 
 ![Webhook](https://raw.githubusercontent.com/mzp/prpr/master/docs/webhook.png)
 

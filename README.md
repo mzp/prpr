@@ -33,6 +33,20 @@ gem "prpr-conflict_label", github: "mzp/prpr-conflict_label"
 ....
 ```
 
+## Setup
+### Deploy
+See [prpr-template](https://github.com/mzp/prpr-template) for example.
+
+### Setup webhook
+
+Open your github repository's webhook setting, and input lik following.
+
+ * Payload URL: http://prpr.example.com
+ * Content type: application/x-www-form-url-encoded
+ * Which events would you like to trigger this webhook?: send everytihng
+
+![Webhook](https://raw.githubusercontent.com/mzp/prpr/master/docs/webhook.png)
+
 ## LICENSE
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

@@ -5,6 +5,10 @@ class TestHandler < Prpr::Handler::Base
     self.invoked(event)
   end
 
+  handle Prpr::Event::PullRequest, action: 'labeled', number: 26 do
+    self.invoked(event)
+  end
+
   def invoked(_)
   end
 end
@@ -14,25 +18,49 @@ RSpec.describe Prpr::Handler::Base do
     JSON.parse fixture('pull_request_open.json')
   }
 
-  context 'invoke matched handler' do
-    let(:event) {
-      Prpr::Event::PullRequest.new(json)
-    }
+  let(:event) {
+    Prpr::Event::PullRequest.new(payload)
+  }
 
-    it do
-      expect_any_instance_of(TestHandler).to receive(:invoked).with(event)
-      Prpr::Handler::Base.on_event event
+  describe '#query' do
+    describe '/regexp/' do
+      context 'matched' do
+        let(:payload) { json }
+
+        it do
+          expect_any_instance_of(TestHandler).to receive(:invoked).with(event)
+          Prpr::Handler::Base.on_event event
+        end
+      end
+
+      context 'unmatch' do
+        let(:payload) { json.merge action: 'closed' }
+
+        it do
+          expect_any_instance_of(TestHandler).to_not receive(:invoked)
+          Prpr::Handler::Base.on_event event
+        end
+      end
     end
-  end
 
-  context 'not invoke un-matched handler' do
-    let(:event) {
-      Prpr::Event::PullRequest.new(json.merge(action: 'closed'))
-    }
+    describe '"string"' do
+      context 'matched' do
+        let(:payload) { json.merge action: 'labeled' }
 
-    it do
-      expect_any_instance_of(TestHandler).to_not receive(:invoked)
-      Prpr::Handler::Base.on_event event
+        it do
+          expect_any_instance_of(TestHandler).to receive(:invoked).with(event)
+          Prpr::Handler::Base.on_event event
+        end
+      end
+
+      context 'unmatch' do
+        let(:payload) { json.merge action: 'unlabeled' }
+
+        it do
+          expect_any_instance_of(TestHandler).to_not receive(:invoked)
+          Prpr::Handler::Base.on_event event
+        end
+      end
     end
   end
 end

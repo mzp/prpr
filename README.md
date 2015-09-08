@@ -29,7 +29,7 @@ GITHUB_HOST - github host for github enterprise
 
 Your personal access token could be created at [settings](https://github.com/settings/tokens).
 
-### Env
+### Gemfile
 
 All you need to use your favorite plugins is to write their names into Gemfile.
 Prpr will load them before running.

@@ -39,7 +39,7 @@ See [prpr-template](https://github.com/mzp/prpr-template) for example.
 
 ### Setup webhook
 
-Open your github repository's webhook setting, and input lik following.
+Open webhook setting of your github repository, and input lik following.
 
  * Payload URL: http://prpr.example.com
  * Content type: `application/x-www-form-url-encoded`

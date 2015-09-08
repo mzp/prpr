@@ -18,8 +18,18 @@ Publish adapter provides bridge to some chat service.
  * [prpr-slack](https://github.com/mzp/prpr-slack)
 
 ## Configuration
+### Env
 Store configuration value in envorinment variables.
 They are easy to change between deploys without changing any code.
+
+```
+GITHUB_ACCESS_TOKEN - access token for your bot
+GITHUB_HOST - github host for github enterprise
+```
+
+Your personal access token could be created at [settings](https://github.com/settings/tokens).
+
+### Env
 
 All you need to use your favorite plugins is to write their names into Gemfile.
 Prpr will load them before running.

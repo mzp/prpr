@@ -47,6 +47,8 @@ gem "prpr-conflict_label", github: "mzp/prpr-conflict_label"
 ### Deploy
 See [prpr-template](https://github.com/mzp/prpr-template) for example.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/mzp/prpr-template)
+
 ### Setup webhook
 
 Open webhook setting of your github repository, and input lik following.

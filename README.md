@@ -36,10 +36,10 @@ Prpr will load them before running.
 
 ```ruby
 # Gemfile
-gem "prpr", github: "mzp/prpr"
-gem "prpr-slack", github: "mzp/prpr-slack"
-gem "prpr-checklist", github: "mzp/prpr-checklist"
-gem "prpr-conflict_label", github: "mzp/prpr-conflict_label"
+gem "prpr"
+gem "prpr-slack"
+gem "prpr-checklist"
+gem "prpr-conflict_label"
 ....
 ```
 

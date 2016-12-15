@@ -18,6 +18,8 @@ module Prpr
             IssueComment.new(JSON.parse(payload))
           when 'commit_comment'
             CommitComment.new(JSON.parse(payload))
+          when 'pull_request_review'
+            PullRequestReview.new(JSON.parse(payload))
           when 'pull_request_review_comment'
             PullRequestReviewComment.new(JSON.parse(payload))
           else

@@ -12,6 +12,7 @@ Handler provides various behaviors.
  * [prpr-mention_comment](https://github.com/mzp/prpr-mention_comment)
  * [prpr-gemfile](https://github.com/mzp/prpr-gemfile)
  * [prpr-trello](https://github.com/mzp/prpr-trello)
+ * [prpr-lgtm](https://github.com/mzp/prpr-lgtm)
 
 ### Publisher adapter
 Publish adapter provides bridge to some chat service.

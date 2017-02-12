@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'prpr'
+
+repo, url = ARGV[0..1]
+webhook = Prpr::Webhook.new(repo, url)
+hook = webhook.create_or_update
+puts webhook.url_for(hook)

@@ -3,7 +3,6 @@ module Prpr
     attr_reader :repo, :url
 
     MSG = 'USAGE: bin/webhook <repo> <url>'.freeze
-    EVENTS = %w(pull_request push issue_comment commit_comment pull_request_review pull_request_review_comment).freeze
 
     def initialize(repo, url)
       @repo = repo
@@ -14,7 +13,7 @@ module Prpr
       fail MSG unless valid?
 
       config = { url: url, secret: secret }
-      options = { events: EVENTS }
+      options = { events: Event::Event.events.keys }
       if hook
         client.edit_hook(repo, hook.id, 'web', config, options)
       else

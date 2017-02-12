@@ -41,7 +41,7 @@ RSpec.describe Prpr::Webhook do
           hook.id,
           'web',
           { url: url, secret: env[:secret_token] },
-          events: Prpr::Webhook::EVENTS)
+          events: Prpr::Event::Event.events.keys)
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe Prpr::Webhook do
           repo,
           'web',
           { url: url, secret: env[:secret_token] },
-          events: Prpr::Webhook::EVENTS)
+          events: Prpr::Event::Event.events.keys)
       end
     end
   end

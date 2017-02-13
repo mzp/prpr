@@ -8,23 +8,22 @@ module Prpr
 
     class Event
       class << self
+        def events
+          {
+            commit_comment: CommitComment,
+            issue_comment: IssueComment,
+            pull_request: PullRequest,
+            pull_request_review: PullRequestReview,
+            pull_request_review_comment: PullRequestReviewComment,
+            push: Push
+          }
+        end
+
         def parse(payload, event:)
-          case event
-          when 'pull_request'
-            PullRequest.new(JSON.parse(payload))
-          when 'push'
-            Push.new(JSON.parse(payload))
-          when 'issue_comment'
-            IssueComment.new(JSON.parse(payload))
-          when 'commit_comment'
-            CommitComment.new(JSON.parse(payload))
-          when 'pull_request_review'
-            PullRequestReview.new(JSON.parse(payload))
-          when 'pull_request_review_comment'
-            PullRequestReviewComment.new(JSON.parse(payload))
-          else
-            fail UnknownEvent, event
-          end
+          klass = events[event.to_sym]
+          fail UnknownEvent, event unless klass
+
+          klass.new(JSON.parse(payload))
         end
       end
     end

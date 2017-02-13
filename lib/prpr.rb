@@ -1,5 +1,6 @@
 require 'prpr/version'
 require 'prpr/runner'
+require 'prpr/server'
 require 'prpr/config/env'
 require 'prpr/config/github'
 require 'prpr/repository/github'

@@ -32,6 +32,8 @@ GEM
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (10.4.2)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -71,6 +73,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   prpr!
   pry
+  rack-test
   rake (~> 10.0)
   rspec
   ultrahook

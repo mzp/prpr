@@ -19,7 +19,7 @@ GEM
     faraday (0.10.0)
       multipart-post (>= 1.2, < 3)
     hashie (3.4.6)
-    json (1.8.3)
+    json (1.8.6)
     method_source (0.8.2)
     multipart-post (2.0.0)
     octokit (4.6.2)
@@ -79,4 +79,4 @@ DEPENDENCIES
   ultrahook
 
 BUNDLED WITH
-   1.13.6
+   1.16.1

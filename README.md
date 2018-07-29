@@ -22,7 +22,7 @@ Publish adapter provides bridge to some chat service.
 
 ## Configuration
 ### Env
-Store configuration value in envorinment variables.
+Store configuration value in environment variables.
 They are easy to change between deploys without changing any code.
 
 ```

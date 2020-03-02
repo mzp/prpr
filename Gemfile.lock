@@ -34,7 +34,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (10.4.2)
+    rake (13.0.1)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -74,7 +74,7 @@ DEPENDENCIES
   prpr!
   pry
   rack-test
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec
   ultrahook
 

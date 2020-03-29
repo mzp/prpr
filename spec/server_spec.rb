@@ -15,8 +15,10 @@ RSpec.describe Prpr::Server do
     expect(last_response.body).to eq 'ok'
   end
 
-  it 'returns an error response for the unknown event' do
-    headers = { 'HTTP_X_GITHUB_EVENT' => 'unknown' }
+  it 'returns an error response with error' do
+    expect_any_instance_of(Prpr::Runner).to receive(:call).and_raise('test error')
+
+    headers = { 'HTTP_X_GITHUB_EVENT' => 'pull_request' }
     post '/', { payload: '{}' }, headers
 
     expect(last_response).to be_ok

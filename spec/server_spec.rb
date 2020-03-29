@@ -15,6 +15,16 @@ RSpec.describe Prpr::Server do
     expect(last_response.body).to eq 'ok'
   end
 
+  it 'returns an unsupported response for unsupported events' do
+    expect_any_instance_of(Logger).not_to receive(:error)
+
+    headers = { 'HTTP_X_GITHUB_EVENT' => 'status' }
+    post '/', { payload: '{}' }, headers
+
+    expect(last_response).to be_ok
+    expect(last_response.body).to eq 'Unsupported: status'
+  end
+
   it 'returns an error response with error' do
     expect_any_instance_of(Prpr::Runner).to receive(:call).and_raise('test error')
 

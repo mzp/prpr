@@ -12,6 +12,8 @@ module Prpr
 
         Prpr::Runner.new.call params['payload'], event: request.env['HTTP_X_GITHUB_EVENT']
         'ok'
+      rescue Prpr::Event::UnknownEvent => e
+        "Unsupported: #{e.message}"
       rescue => e
         logger.error e.message
         "Error: #{e.message}\n#{e.backtrace}"
